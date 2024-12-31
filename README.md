@@ -22,7 +22,7 @@ With these reductions in computational burden, the replication package should ta
 
 ## Data Description
 
-The data in this repository are organized into two separate folders, one each for the simulation results and the English et al. (2018) empirical replication exercise, respectively.  The intermediate and final simulated data generated as part of the Monte Carlo analysis are stored in [data/simulations/](/data/simulations/).  The raw, intermediate, and final data used as part of the English et al. (2018) empirical exercise are stored in [data/dwh_replication/](/data/dwh_replication/).
+The data in this repository are organized into two separate folders, one each for the simulation results and the English et al. (2018) empirical replication exercise, respectively.  The intermediate and final simulated data generated as part of the Monte Carlo analysis are stored in [`/data/simulations/`](/data/simulations/).  The raw, intermediate, and final data used as part of the English et al. (2018) empirical exercise are stored in [`/data/dwh_replication/`](/data/dwh_replication/).
 
 ### [Simulation Data](/data/simulations/)
 
@@ -42,9 +42,9 @@ The data stored in the [Simulation Data](/data/simulations/) subfolder are gener
 
 7. [est_wtp_rc_weak.csv](/data/simulations/est_wtp_rc_weak.csv) and [est_wtp_rc_weak_fstat.csv](/data/simulations/est_wtp_rc_weak_fstat.csv): contain results from the robustness check that implements the Simulation 2 data generating process with different degrees of instrument relevance. The results from this robustness check are reported in Appendix Figure A5.
 
-### [English et al. (2018) Replication Data](/data/dwh_replication/)
+### [Empirical Exercise Data](/data/dwh_replication/)
 
-The data stored in the [English et al. (2018) Replication Data](/data/dwh_replication/) subfolder are categorized into three separate types: (1) data taken directly from English et al. (2018), (2) supplemental data used to generate travel cost intstruments, and (3) constructed files containing intermediate data used to generate parameter estimates and standard errors.
+The data stored in the this subfolder are categorized into three separate types: (1) data taken directly from English et al. (2018), (2) supplemental data used to generate travel cost intstruments, and (3) constructed files containing intermediate data used to generate parameter estimates and standard errors.
 
 #### English et al. (2018) source data
 I obtain the source data on the Deepwater Horizon oil spill and Gulf Coast beach visitation necessary for the English et al. (2018) empirical exercise from the National Oceanographic and Atmospheric Administration's [Natural Resource Damage Assessment (NRDA) public repository](https://www.diver.orr.noaa.gov/deepwater-horizon-nrda-data).  These data are made available to the public and as stated above I have legitimate access and permission to use and report these data as part of this replication package.  I only include those source datasets from English et al. (2018) which I use directly in the production of the results reported in this paper.  These datasets include the following (see the main text or English et al. (2018) for additional information):
@@ -79,11 +79,11 @@ I discuss cost instrument selection in Section 5.3 of the main text.  Travel cos
 #### Intermediate and final estimation data
 These subfolders contain intermediate or final objects related to estimation of the recreation demand models as part of the English et al. (2018) empirical exercise.  In particular
 
-1. [/zmat/](/data/dwh_replication/zmat/): contains wide format cost instrument matrices stored as CSV files for use in implementing the two-stage control function estimator as part of the English et al. (2018) empirical exercise. These are stored in wide format (i.e., a choice occasion-by-recreation site matrix) to align with the format of the final estimation objects used by English et al. (2018).  
+1. [`/zmat/`](/data/dwh_replication/zmat/): contains wide format cost instrument matrices stored as CSV files for use in implementing the two-stage control function estimator as part of the English et al. (2018) empirical exercise. These are stored in wide format (i.e., a choice occasion-by-recreation site matrix) to align with the format of the final estimation objects used by English et al. (2018).  
 
-2. [/est/](/data/dwh_replication/est/): contains parameter estimates for all main and robustness specifications included in the English et al. (2018) empirical exercise.
+2. [`/est/`](/data/dwh_replication/est/): contains parameter estimates for all main and robustness specifications included in the English et al. (2018) empirical exercise.
 
-3. [/boot_est/](/data/dwh_replication/boot_est/): contains parameter estimates for all bootstrap iterations for all main and robustness specifications included in the English et al. (2018) empirical exercise. These files are used to construct parameter covariances and standard errors.
+3. [`/boot_est/`](/data/dwh_replication/boot_est/): contains parameter estimates for all bootstrap iterations for all main and robustness specifications included in the English et al. (2018) empirical exercise. These files are used to construct parameter covariances and standard errors.
 
 ## Computational Requirements
 
@@ -94,7 +94,7 @@ The code has been tested on the following machines:
 
 I expect this package to run successfully on systems with similar specifications. Runtime will depend on the specifications of the system, particularly since much of the computationally-intensive steps written in Julia depend on multi-threading.  Note that replicators should adjust their enrivonment variable `JULIA_NUM_THREADS` to allow for multithreading in accordance with their system's specifications.
 
-All code is written in R and Julia and has been tested with R version 4.4.1 and Julia version 1.10.4. The versions of the R packages are stored in the [renv](/renv.lock) lockfile. The versions of the required Julia dependencies are stored in the [Manifest.toml][/Manifest] file.
+All code is written in R and Julia and has been tested with R version 4.4.1 and Julia version 1.10.4. The versions of the R packages are stored in the [renv](/renv.lock) lockfile. The versions of the required Julia dependencies are stored in the [Manifest.toml](/Manifest.toml) file.
 
 ## Instructions to Replicators
 
@@ -104,13 +104,13 @@ Download and install version 4.4.1 of R and Julia 1.10.4.
 
 ### 2. Replicate the results of the paper
 
-After installing the necessary software above, navigate to the project directory and exectute the [run_all.jl](run_all.jl) file.  This file will execute the code of the paper, starting with the code necessary to replicate the simulation results followed by the code necessary to replicate the empirical exercise.  This master file is written in Julia and uses the Julia package `RCall` to call all R scripts. The master file can be called using the following command line prompt in a Windows command terminal:
+After installing the necessary software above, navigate to the project directory and exectute the [`run_all.jl`](run_all.jl) file.  This file will execute the code of the paper, starting with the code necessary to replicate the simulation results followed by the code necessary to replicate the empirical exercise.  This master file is written in Julia and uses the Julia package `RCall` to call all R scripts. The master file can be called using the following command line prompt in a Windows command terminal:
 
 ```
 julia run_all.jl
 ```
 
-You can also open a Julia REPL in your IDE of choice and execute the [`run_all.j`l](run_all.jl) script. Executing the [`run_all.jl`](run_all.jl) script will create all of the tables and figures of the paper. The results will be saved within the [/output/](/output/) folder, which contains separate subfolders for the [simulation results](/output/simulations/) and [English et al. (2018) empirical results](/output/dwh_replication/).
+You can also open a Julia REPL in your IDE of choice and execute the [`run_all.j`l](run_all.jl) script. Executing the [`run_all.jl`](run_all.jl) script will create all of the tables and figures of the paper. The results will be saved within the [`/output/`](/output/) folder, which contains separate subfolders for the [simulation results](/output/simulations/) and [empirical exercise results](/output/dwh_replication/).
 
 The master file contains two commands which will activate and install the necessary R and Julia package dependencies:
 
@@ -126,9 +126,18 @@ R"renv::restore()"  ## Enter "y" when prompted
 Follow all prompts to ensure proper installation of necessary R and Julia packages. 
 
 ## Source Code
-All source code is stored within the [/src/](/src/) folder. The code is stored separately by language into subfolders [`/src/R/`](/src/R) and [`/src/julia/`](/src/julia/), the former of which has separate subfolders for the simulation and empirical results. 
+All source code is stored within the [`/src/`](/src/) folder. The code is stored separately by language into subfolders [`/src/R/`](/src/R) and [`/src/julia/`](/src/julia/). Within each subfolder, files associated with the simulation results are prefixed by s\_ and files associated with the empirical results are prefixed by e\_.
 
-The code will work if it is run in the order shown below; however, note that the above commands that will ensure all R and Julia dependencies are installed are only contained within the [run_all.jl](run_all.jl) file.  As a result, I encourage you to follow the automated replication process using the [`run_all.jl`](run_all.jl) Nonetheless, this entire process is automated using the `run_all.bash` command as described above.
+The code will work if it is run in the order shown below; however, note that the above commands that will ensure all R and Julia dependencies are installed are only contained within the [`run_all.jl`](run_all.jl) file.  As a result, I encourage you to follow the automated replication process using the [`run_all.jl`](run_all.jl) script.
+
+### Simulation Code
+
+1. [`/julia/s_simulations.jl`](/src/julia/s_simulations.jl): contains all user-written functions necessary to simulate choice datasets and implement simulation results.
+
+2. [`/julia/s_run_simulations.jl`](/src/julia/s_run_simulations.jl): contains commands to generate simulated datasets and implement all simulation results reported in the paper using the user-written functions contained within `s_simulations.jl` (loads these functions into the workspace). Saves intermediate data and estimation objects in [`/data/simulations/`](/data/simulations/) 
+
+3. [`/R/s_simulation_figs.R`](/src/R/s_simulation_figs.R): contains code to generate all final tables and figures summarizing simulation results and stores these final outputs in [`/output/simulations/`](/output/simulations/). This script generates Figure 2 ([fig_dgp1.jpg](/output/simulations/fig_dgp1.jpg) and [fig_wtp1.jpg](/output/simulations/fig_wtp1.jpg)), Figure 3 ([fig_dgp2.jpg](/output/simulations/fig_dgp2.jpg) and [fig_wtp2.jpg](/output/simulations/fig_wtp2.jpg)), Figure 4 ([fig_wtp3.jpg](/output/simulations/fig_wtp3.jpg)), Figure A1 ([fig_rc1.jpg](/output/simulations/fig_rc1.jpg)), Figure A2 ([fig_rc2.jpg](/output/simulations/fig_rc2.jpg)), Figure A3 ([fig_rc3.jpg](/output/simulations/fig_rc3.jpg)), Figure A4 ([fig_rc4.jpg](/output/simulations/fig_rc4.jpg)), Figure A5 ([fig_rc5.jpg](/output/simulations/fig_rc5.jpg)), Table 1 ([tab_sim_est.tex](/output/simulations/tab_sim_est.tex)), and Table A1 ([tab_sim_est_groupfe.tex](/output/simulations/tab_sim_est_groupfe.tex)).
+
 
 
 ## References
