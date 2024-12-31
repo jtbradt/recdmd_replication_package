@@ -110,7 +110,7 @@ After installing the necessary software above, navigate to the project directory
 julia run_all.jl
 ```
 
-You can also open a Julia REPL in your IDE of choice and execute the [run_all.jl](run_all.jl) script. Executing the [run_all.jl](run_all.jl) script will create all of the tables and figures of the paper. The results will be saved within the [/output/](/output/) folder, which contains separate subfolders for the [simulation results](/output/simulations/) and [English et al. (2018) empirical results](/output/dwh_replication/).
+You can also open a Julia REPL in your IDE of choice and execute the [`run_all.j`l](run_all.jl) script. Executing the [`run_all.jl`](run_all.jl) script will create all of the tables and figures of the paper. The results will be saved within the [/output/](/output/) folder, which contains separate subfolders for the [simulation results](/output/simulations/) and [English et al. (2018) empirical results](/output/dwh_replication/).
 
 The master file contains two commands which will activate and install the necessary R and Julia package dependencies:
 
@@ -126,7 +126,10 @@ R"renv::restore()"  ## Enter "y" when prompted
 Follow all prompts to ensure proper installation of necessary R and Julia packages. 
 
 ## Source Code
-All source code is stored within the [/src/](/src/) folder. 
+All source code is stored within the [/src/](/src/) folder. The code is stored separately by language into subfolders [`/src/R/`](/src/R) and [`/src/julia/`](/src/julia/), the former of which has separate subfolders for the simulation and empirical results. 
+
+The code will work if it is run in the order shown below; however, note that the above commands that will ensure all R and Julia dependencies are installed are only contained within the [run_all.jl](run_all.jl) file.  As a result, I encourage you to follow the automated replication process using the [`run_all.jl`](run_all.jl) Nonetheless, this entire process is automated using the `run_all.bash` command as described above.
+
 
 ## References
 
