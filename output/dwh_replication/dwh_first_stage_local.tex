@@ -1,0 +1,36 @@
+
+\begingroup
+\centering
+\begin{tabular}{lccc}
+   \tabularnewline \midrule \midrule
+   Dependent Variable: & \multicolumn{3}{c}{Travel Cost}\\
+   Model:                                    & (1)            & (2)                   & (3)\\  
+   \midrule
+   \emph{Variables}\\
+   log(employment\_rate)                     & 291.7 (33.1)   & 239.5 (22.5)          & -58.6 (24.1)\\   
+   log(Median Income)                        & 227.4 (17.5)   & 190.2 (20.2)          & 151.3 (7.05)\\   
+   log(Population)                           & -13.6 (1.23)   & -12.6 (1.46)          & -5.02 (0.778)\\   
+   Oil Supply Shock $\times$ Distance        & -0.031 (0.004) & -0.058 (1.92)         & 0.006 (0.0008)\\   
+   Oil Demand Shock $\times$ Distance        & 0.001 (0.0002) & 0.002 (0.073)         & 0.0010 (0.00006)\\   
+   log(employment\_rate) $\times$ Distance   & 0.264 (0.022)  & 0.193 (0.021)         & 0.490 (0.046)\\   
+   log(Median Income) $\times$ Distance      & -0.114 (0.010) & -0.079 (0.012)        & -0.187 (0.023)\\   
+   log(Population) $\times$ Distance         & 0.018 (0.0009) & 0.016 (0.001)         & 0.025 (0.003)\\   
+   Distance $\times$ Destination Gas Tax     & 0.002 (0.002)  & 0.0004 (0.002)        & 0.001 (0.003)\\   
+   Distance $\times$ Mean Route Gas Tax      & 0.091 (0.007)  & 0.062 (0.006)         & -0.010 (0.024)\\   
+   \midrule
+   \emph{Fixed-effects}\\
+   Alternative Specific Constants            & Yes            & Yes                   & Yes\\  
+   \midrule
+   \emph{Fit statistics}\\
+   Sample                                    & National       & Non-local Respondents & Local Respondents\\  
+   Sample Weights                            & Yes            & Yes                   & Yes\\  
+   Observations                              & 3,462,428      & 1,112,781             & 2,349,647\\  
+   R$^2$                                     & 0.364          & 0.258                 & 0.606\\  
+   Within R$^2$                              & 0.361          & 0.255                 & 0.588\\  
+   Wald (joint nullity)                      & 9,915.6        & 5,594.8               & 3,830.5\\  
+   \midrule \midrule
+   \multicolumn{4}{l}{\emph{Clustered (Alternative Specific Constants) standard-errors in parentheses}}\\
+\end{tabular}
+\par\endgroup
+
+
